@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+{% block logout %}
+<a type="button" class="btn btn-outline-dark" href="/">Log Out</a>
+{% endblock logout %}
+
+{% block body %}
+
+<div class="container">
+    {% if allPass|length==0 %}
+    <div class="alert alert-dark" style="margin-top: 3%; text-align: center;" role="alert">
+        No passwords to show, add passwords now.
+    </div>
+    {% else %}
+    <h2 style="text-align: center; margin-top: 5%;">Your Passwords</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Website</th>
+                <th scope="col">Username</th>
+                <th scope="col">Password</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pass in allPass %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{pass.website}}</td>
+                <td>{{pass.website_username}}</td>
+                <td>{{pass.password}}</td>
+                <td>
+                    <a href="update/{{pass.sno}}" type="button" class="btn btn-outline-primary btn-sm mx-1">Update</a>
+                    <a href="delete/{{pass.sno}}" type="button" class="btn btn-outline-danger btn-sm mx-1">Delete</a>
+                </td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+    <div style="text-align: center;">
+        <a href="/add/{{sno}}" type="button" class="btn btn-dark">Add
+            Password</a>
+    </div>
+
+</div>
+{% endblock body %}

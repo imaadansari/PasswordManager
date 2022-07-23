@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Update{% endblock title %}
+
+{% block logout %}
+<a type="button" class="btn btn-outline-dark" href="/">Log Out</a>
+{% endblock logout %}
+
+{% block body %}
+<div class="container" style="width: 40%; text-align: center; margin-top: 5%;">
+    <h2>Update Password</h2>
+    <form action="/update/{{password.sno}}" method="POST">
+        <div class="mb-3">
+            <label for="website" class="form-label">Website</label>
+            <input type="text" class="form-control" name="website" id="website" value="{{password.website}}"
+                aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" id="username" value="{{password.website_username}}"
+                aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" class="form-control" name="password" id="password" value="{{password.password}}"
+                aria-describedby="emailHelp">
+        </div>
+
+        <button type="submit" class="btn btn-dark">Update</button>
+    </form>
+</div>
+{% endblock body %}

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Log In{% endblock title %}
+
+{% block body %}
+<div class="container" style="width: 30%; text-align: center; margin-top: 5%;">
+    <h2>Login</h2>
+    <form action="/" method="POST">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" name="username" id="username" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" class="form-control" name="password" id="password" aria-describedby="emailHelp">
+        </div>
+
+        <button type="submit" class="btn btn-dark">Submit</button>
+    </form>
+    <p style="margin-top: 5%;">New here? <a href="/signup">Sign up</a></p>
+</div>
+
+{% endblock body %}
